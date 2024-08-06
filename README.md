@@ -1,7 +1,7 @@
 # nvim-lightLGP
 * Light neovim distro that puts YOU in at Command Central with Completion, Mason, Lazy.nvim plugin manager. We also give you Lua, Go and Python LSP, linting, formatting and more.
 # Why Lua, Go and Python (LGP)?
-* Lua and Python are deeply nested in the checkhealth process to keep Lua operating smoothly.  Go is the language I'm currently building projects with and can test things like Debuggers, LSP engines and linting/parsing. Go is easily commentable.  I do not recommend commenting Lua or Python.
+* Lua and Python are deeply nested in the checkhealth process to keep Neovim operating smoothly.  Go is the language I'm currently building projects with and can test things like Debuggers, LSP engines and linting/parsing. Go is easily commentable.  I do not recommend commenting Lua or Python.
 
 # Why a new distro though?
 The ecosystem already has dozens of fabulous distros ready to go!  Why another? Because I did my best to keep things light, simple and MANAGEABLE going forward.  Plugins are largely set to use all defaults with help in the comments on where to get more info. I did my best to make sure you could easily remove and customize each, from the ground up so you fully understand the code that powers your IDE.
