@@ -1,5 +1,5 @@
 return {
-	-- Linting is largely done with our OSS hero
+	-- Linting is largely done with our OSS hero stevearc
 	{
 		-- :h conform || :Conf<C-d>
 		"stevearc/conform.nvim",
@@ -27,7 +27,7 @@ return {
 				go = { "goimports", "gofmt" },
 				-- You can use a sub-list to tell conform to run *until* a formatter found
 				javascript = { { "prettierd", "prettier" } },
-				["*"] = { "codespell" },
+				["*"] = { "codespell" }, -- This one may annoy you with a lot of info about spelling
 				["_"] = { "trim_whitespace" },
 			},
 			-- Default opts
