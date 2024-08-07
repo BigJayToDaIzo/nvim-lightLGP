@@ -4,5 +4,9 @@ return {
 	-- :h nvim-autopairs
 	"windwp/nvim-autopairs",
 	event = "InsertEnter",
+	-- opts is like doing:
+	-- require('nvim-autopairs').setup({
+	-- this is where you would set options
+	-- })
 	opts = {},
 }

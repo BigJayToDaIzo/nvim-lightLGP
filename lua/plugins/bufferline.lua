@@ -1,6 +1,8 @@
 return {
 	-- I've done quite a bit of 'tweaking here'
 	-- :h bufferline<C-d>
+	-- This is one of the few plugins I didn't leave at default settings
+	-- Check the configuration options on the github page
 	"akinsho/bufferline.nvim",
 	branch = "main",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -42,12 +44,12 @@ return {
 			},
 		})
 		-- Bufferline keymaps
-		vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { desc = "[C]lose [B]buffer" })
-		vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "[N]ext [B]buffer" })
-		vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "[P]revious [B]buffer" })
-		vim.keymap.set("n", "<leader>br", "<cmd>BufferLineMoveNext<CR>", { desc = "[B]buffer Move [R]ight" })
-		vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineMovePrev<CR>", { desc = "[B]buffer Move [L]eft" })
-		vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { desc = "[B]buffer Close [O]thers" })
+		vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { desc = "Close Buffer" })
+		vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next Buffer" })
+		vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous Buffer" })
+		vim.keymap.set("n", "<leader>br", "<cmd>BufferLineMoveNext<CR>", { desc = "Buffer Move Right" })
+		vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineMovePrev<CR>", { desc = "Bbuffer Move Left" })
+		vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { desc = "Buffer Close Others" })
 		vim.keymap.set("n", "H", "<cmd>BufferLineCyclePrev<cr>")
 		vim.keymap.set("n", "L", "<cmd>BufferLineCycleNext<cr>")
 		vim.keymap.set("n", "<M-h>", "<cmd>BufferLineMovePrev<cr>")
