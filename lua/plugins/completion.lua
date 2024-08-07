@@ -1,7 +1,7 @@
 return {
 	{
-		-- COMPLETION!  It makes IDES feel nice, no matter the lang
 		-- TODO: fill out with better notes, this is a LOT
+		-- COMPLETION!  It makes IDES feel nice, no matter the lang
 		-- Meet the dopest in the game at it,
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -9,16 +9,16 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
-			-- TODO: This may need abstraction
+			-- This 👇 is highly configured in lsp.lua
 			"neovim/nvim-lspconfig",
-			-- Meet also the dopest in the game at snippetnannigans
 			{
+				-- Meet also the dopest in the game at snippetnannigans
 				"L3MON4d3/LuaSnip",
 				build = "make install_jsregexp",
 				dependencies = {
 					"saadparwaiz1/cmp_luasnip",
 				},
-				-- TODO: config function plz
+				-- Config function for LuaSnip
 				config = function()
 					require("cmp").setup({
 						snippet = {
@@ -27,25 +27,25 @@ return {
 							end,
 						},
 						sources = {
-							-- that 'option' is the default for syntax demonstration purposes
+							-- This 'option' is the default for syntax demonstration purposes
 							{ name = "luasnip", option = { show_autosnippets = true } },
 							-- TODO: Go or python or dotnet next!
 						},
 					})
-					-- Post config func pics up here
 				end,
 			},
 		},
-		-- TODO: Setup begins with configuration
+		-- Config function for nvim-cmp
 		config = function()
+			-- Here we capture the require table into a cmp variable to use in keymappings
 			local cmp = require("cmp")
 			cmp.setup({
 				-- REQUIRED - MUST specify snippet engine
 				snippet = {
 					expand = function(args)
-						-- vim.fn["vsnip#anonymous"](args.body) -- For vsnip gangers
 						require("luasnip").lsp_expand(args.body) -- For luaship gangers
-						-- require'snippy'.expand_snippet(args.body) -- snippy gangers
+						-- vim.fn["vsnip#anonymous"](args.body) -- For vsnip gangers
+						-- require('snippy').expand_snippet(args.body) -- snippy gangers
 						-- vim.snippet.expand(args.body) -- On their giant shoulders we stand
 					end,
 				},
@@ -54,12 +54,15 @@ return {
 					-- documentation = cmp.config.window.bordered(),
 				},
 				-- Keybind/keymap trackin' time!
+				-- These mappings will only work when completion window is open
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-y>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					-- Conditional TAB configuration
 					["<Tab>"] = vim.schedule_wrap(function(fallback)
 						if cmp.visible() and has_words_before() then
 							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
@@ -79,22 +82,21 @@ return {
 					end, { "i", "s" }),
 				}),
 				-- Source trackin' time!
-				-- Where moar completion sources?
+				-- More completion sources? 👇
+				-- I'm going to go install copilot on my clone
 				-- WARN: Rabbit hole 󱩢🕳
 				-- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
 				-- TODO: Pick one or two at a time and link them in!
-				-- TODO: Probably Copilot or Codeium
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp", group_index = 2 },
 					{ name = "luasnip" },
 					{ name = "path", group_index = 2 },
 					-- { name = 'vsniip' }, -- for that gang
-					-- AI helper bro.  Careful things can start getting hearvy down this...
+					-- AI helper bro.  Careful things can start getting heavy down this path
 					-- :WARN 󱩢🕳
 					-- { name = 'copilot', group_index 1 },
 					-- and so on
 				}, {
-					-- WARN: Insert rabbit hole here 🕳󱩢
 					{ name = "buffer" },
 				}),
 
@@ -113,7 +115,8 @@ return {
          require("cmp_git").setup() ]]
 				--
 
-				-- TODO Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+				-- TODO: Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+
 				-- cmp.setup.cmdline({ '/', '?' }, {
 				--   mapping = cmp.mapping.preset.cmdline(),
 				--   sources = {
@@ -143,6 +146,4 @@ return {
 		end,
 		--Post config shenannigans here if necessary
 	},
-	-- Another completion plugin here?
-	-- {},
 }
