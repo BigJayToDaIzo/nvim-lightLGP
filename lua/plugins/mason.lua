@@ -7,7 +7,6 @@ return {
 	dependencies = {
 		{
 			-- :h nvim-lint
-			-- TODO Lint some Lua and beyond plz
 			"mfussenegger/nvim-lint",
 		},
 		{
@@ -19,7 +18,6 @@ return {
 			-- :h dapui.setup()
 			"rcarriga/nvim-dap-ui",
 			dependencies = "nvim-neotest/nvim-nio",
-			-- neotest module in lua/plugins/neotest.lua ASAP
 		},
 		-- Installs the debug adapters for you
 		-- Mason has very reasonable defaults and I don't see a need to abstract it's configuration yet

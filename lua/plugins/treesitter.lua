@@ -1,12 +1,13 @@
 return {
 	{
-		-- TODO: Does treesitter get a keychord? <leader>t*
 		-- NOTE: I say :TS<C-d> is good enough for now
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		-- all modules must be explicitly enabled
 		config = function()
 			require("nvim-treesitter.configs").setup({
+				-- This is what I use for my daily workflow, yours may not require all of it
+				-- Just delete the lines you don't need!
 				ensure_installed = {
 					"angular",
 					"bash",

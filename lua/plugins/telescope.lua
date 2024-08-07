@@ -1,7 +1,7 @@
 -- FZF URR THNG MFR FLFR
 return {
 	-- :h telescope || :Telescope <C-d> will take you far! The or condition is a secret!
-	-- kh telescope.defaults.mappings
+	-- :h telescope.defaults.mappings
 	-- <C-/> brings up keybinds inside telescope!
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
@@ -26,7 +26,6 @@ return {
 			end,
 		},
 		{
-			-- Telescope takes over dap here?  May be undesirable behavior
 			"nvim-telescope/telescope-dap.nvim",
 		},
 	},
@@ -36,12 +35,7 @@ return {
 				-- Default configuration for telescope goes here:
 				-- config_key = value,
 				mappings = {
-					i = {
-						-- map actions.which_key to <C-h> (default: <C-/>)
-						-- actions.which_key shows the mappings for your picker,
-						-- e.g. git_{create, delete, ...}_branch for the git_branches picker
-						-- ["<C-h>"] = "which_key"
-					},
+					i = {},
 				},
 			},
 			pickers = {
@@ -63,7 +57,7 @@ return {
 					require("telescope.themes").get_dropdown(),
 				},
 				fzf = {
-					-- Has sensible defaults this table is for show whur set different
+					-- Sensible defaults, table is for understanding purposes
 				},
 			},
 		})
@@ -72,7 +66,6 @@ return {
 		pcall(require("telescope").load_extension, "dap")
 		local builtin = require("telescope.builtin")
 
-		-- TODO: Add those sweet telescope dap extension binds!
 		vim.keymap.set("n", "<leader><leader>", function()
 			builtin.buffers(require("telescope.themes").get_dropdown({
 				previewer = true,

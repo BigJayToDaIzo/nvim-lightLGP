@@ -2,7 +2,6 @@ return {
 	-- :h oil<C-d>
 	-- Navigate the file tree like a text file in a buffer!
 	"stevearc/oil.nvim",
-	opts = {},
 	dependencies = {
 		{ "echasnovski/mini.icons", opts = {} },
 	},
@@ -25,8 +24,5 @@ return {
 		})
 	end,
 	-- Keymap that thang!
-	-- change command to function that pulls cwd from vim
-	-- So Oil stays caught up with the last place it interacted
-	-- with the fs. Default is cwd of current buffer
 	vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open Oil FileTree" }),
 }

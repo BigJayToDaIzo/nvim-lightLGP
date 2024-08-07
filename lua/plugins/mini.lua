@@ -1,7 +1,3 @@
--- This could be substantial, but I'm piecemealing these
--- modules in instead of grabbing a 40pack and sorting
--- through THAT mess for a week.
--- I'm starting to think mini plugins hate my box
 return {
 	-- NOTE: Keybind hints
 	-- FIX: Breaking when opening new files and other odd buffer transitions
@@ -44,7 +40,6 @@ return {
 					{ mode = "n", keys = "z" },
 					{ mode = "x", keys = "z" },
 				},
-
 				-- Array of extra clues to show
 				clues = {
 					miniclue.gen_clues.builtin_completion(),
@@ -54,22 +49,20 @@ return {
 					miniclue.gen_clues.windows(),
 					miniclue.gen_clues.z(),
 					-- Enhance this by adding descriptions for <Leader> mapping groups
+					-- I had to put set <leader>g in keymaps.lua because it would break trying to do it here
 					{ mode = "n", keys = "<Leader>d", desc = "+Debug" },
 					{ mode = "n", keys = "<Leader>s", desc = "+Search" },
 					{ mode = "n", keys = "<Leader>b", desc = "+Buffer" },
 					{ mode = "n", keys = "<Leader>l", desc = "+LSP" },
 				},
-
 				-- Clue window settings
 				window = {
 					-- Floating window config
 					config = {
 						width = "auto",
 					},
-
 					-- Delay before showing clue window
 					delay = 0,
-
 					-- Keys to scroll inside the clue window
 					scroll_down = "<C-d>",
 					scroll_up = "<C-u>",
