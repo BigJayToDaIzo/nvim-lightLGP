@@ -3,5 +3,6 @@ return {
 	-- :h ibl<C-d>
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
+	-- Defaults are awesome!
 	opts = {},
 }

@@ -10,6 +10,8 @@ return {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",
 	},
+	-- When configs are simple and dont require function declarations and the like
+	-- you can skip the config = function().setup() and just use an opts table
 	opts = {
 		max_count = 8,
 		disable_mouse = false,

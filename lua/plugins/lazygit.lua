@@ -15,6 +15,7 @@ return {
 		"LazyGitFilterCurrentFile",
 	},
 	keys = {
+		-- We'll lump this bind in with Gitsigns
 		{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 	},
 }

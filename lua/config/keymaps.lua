@@ -30,7 +30,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- this hack is necessary for it to group <leader>g binds to Gitsigns
 --
 -- NOTE: Gitsigns will take chord <leader>g*
-vim.keymap.set("n", "<leader>g", function() end, { desc = "+Gitsigns" })
+vim.keymap.set("n", "<leader>g", function() end, { desc = "+Git" })
 
 -- NOTE: Oil unchorded using <leader>e (you may want to reclaim to chord something else, or use a different bind entirely)
 --

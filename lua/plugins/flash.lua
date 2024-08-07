@@ -4,11 +4,11 @@ return {
 	--
 	"folke/flash.nvim",
 	event = "VeryLazy",
-	opts = {},
-	config = function(opts)
+	config = function()
 		require("flash").setup({
 			modes = {
 				-- NOTE: Upgrades vanilla search to have flashpoints
+				-- NOT default behavior, but why clutter keymaps?
 				search = { enabled = true },
 			},
 		})

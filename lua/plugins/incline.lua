@@ -11,7 +11,7 @@ return {
 	config = function()
 		-- Recipe copy/pasted right out of the README
 		-- There's another with all kinds of lsp info
-		-- but I have that on my lualine
+		-- but we have that on lualine
 		local helpers = require("incline.helpers")
 		local devicons = require("nvim-web-devicons")
 		require("incline").setup({
