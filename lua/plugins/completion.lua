@@ -18,50 +18,44 @@ return {
 				dependencies = {
 					"saadparwaiz1/cmp_luasnip",
 				},
-				-- Config function for LuaSnip
-				config = function()
-					require("cmp").setup({
-						snippet = {
-							expand = function(args)
-								require("luasnip").lsp_expand(args.body)
-							end,
-						},
-						sources = {
-							-- This 'option' is the default for syntax demonstration purposes
-							{ name = "luasnip", option = { show_autosnippets = true } },
-							-- TODO: Go or python or dotnet next!
-						},
-					})
-				end,
 			},
 		},
 		-- Config function for nvim-cmp
 		config = function()
+			local luasnip = require("luasnip")
+			luasnip.config.setup({})
+			local has_words_before = function()
+				if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+					return false
+				end
+				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+				return col ~= 0
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+			end
 			-- Here we capture the require table into a cmp variable to use in keymappings
 			local cmp = require("cmp")
 			cmp.setup({
 				-- REQUIRED - MUST specify snippet engine
 				snippet = {
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For luaship gangers
+						luasnip.lsp_expand(args.body) -- For luaship gangers
 						-- vim.fn["vsnip#anonymous"](args.body) -- For vsnip gangers
 						-- require('snippy').expand_snippet(args.body) -- snippy gangers
 						-- vim.snippet.expand(args.body) -- On their giant shoulders we stand
 					end,
 				},
-				window = {
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
-				},
+				completion = { completeopt = "menu,menuone,noinsert" },
 				-- Keybind/keymap trackin' time!
 				-- These mappings will only work when completion window is open
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-y>"] = cmp.mapping.complete(),
+					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
+					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 					["<C-e>"] = cmp.mapping.abort(),
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
 					-- Conditional TAB configuration
 					["<Tab>"] = vim.schedule_wrap(function(fallback)
 						if cmp.visible() and has_words_before() then
