@@ -1,7 +1,7 @@
 # nvim-lightLGP
-* Light neovim distro that puts YOU in at Command Central with Completion, Mason, Lazy.nvim plugin manager. We also give you Lua, Go and Python LSP, linting, formatting and more.
+Light neovim distro that puts YOU in at Command Central with Completion, Mason, Lazy.nvim plugin manager. We also give you Lua, Go and Python LSP, linting, formatting and more.
 # Why Lua, Go and Python (LGP)?
-* Lua and Python are deeply nested in the checkhealth process to keep Neovim operating smoothly.  Go is the language I'm currently building projects with and can test things like Debuggers, LSP engines and linting/parsing. Go is easily commentable.  I do not recommend commenting Lua or Python.
+Lua and Python are deeply nested in the checkhealth process to keep Neovim operating smoothly.  Go is the language I'm currently building projects with and can test things like Debuggers, LSP engines and linting/parsing. Go is easily commentable.  I do not recommend commenting Lua or Python.
 
 # Why a new distro though?
 The ecosystem already has dozens of fabulous distros ready to go!  Why another? Because I did my best to keep things light, simple and MANAGEABLE going forward.  Plugins are largely set to use all defaults with help in the comments on where to get more info. I did my best to make sure you could easily remove and customize each, from the ground up so you fully understand the code that powers your IDE.
@@ -21,6 +21,7 @@ This is my attempt at a simple, highly configurable soft place to land, after al
 ```
 git clone https://github.com/BigJayToDaIzo/nvim-lightLGP ~/.config/nvim-lightLGP/
 ```
+* Point one time execution of nvim at the new configuration:
 ```
 NVIM-APPNAME=nvim-lightLGP nvim
 ```
@@ -44,6 +45,10 @@ nvim
 ```
 rm -rf ~/.config/nvim-lightLGP
 ```
+* Alternatively if you LOVE it and you're ready to bench your current configs and load the new ones by default:
+```
+mv ~/.config/nvim ~/.config/nvim-back && mv ~/.config/nvim-lightLGP ~/.config/nvim
+```
 
 
 # Help
@@ -54,11 +59,11 @@ The help begins here, radiates into each and every lua file under `~/.config/nvi
 
 The bulk of my inspiration came from the following:
 
-1 Folke, may your LazyVim distro bring many more into the fold
+1) Folke, may your LazyVim distro bring many more into the fold
 - Distro: https://github.com/LazyVim/LazyVim
 - Plugin Manager: https://github.com/folke/lazy.nvim
 
-2 TJ Devries, may you always read the friendly manual to any who will hear it
+2) TJ Devries, may you always read the friendly manual to any who will hear it
 
 - Distro: https://github.com/nvim-lua/kickstart.nvim
 
